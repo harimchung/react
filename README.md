@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Day 1을 진행하며 느낀점
 
 ### 1. next.js
@@ -13,3 +14,6 @@
 
 ### 더 궁금한점
 server component가 무엇인지?
+=======
+# react
+>>>>>>> d56d77c (Initial commit)
