@@ -1,7 +1,7 @@
-import { CardProps } from "@/components/atoms/Card/types";
+import { CardProps } from '@/components/atoms/Card/types';
 
 type CardListProps = {
-    cards: CardProps[];
+  cards: CardProps[];
 };
 
 export type { CardListProps };
