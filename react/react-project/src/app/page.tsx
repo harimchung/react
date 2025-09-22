@@ -1,33 +1,25 @@
 'use client';
-import { CounterWithPrev, DebouncedInput } from '@/components';
+import { TodoInput, TodoList } from '@/components';
 import styles from './page.module.css';
 import React from 'react';
 
+export type Todo = {
+  id: number;
+  text: string;
+};
+
 export default function Home() {
-  const [counter, setCounter] = React.useState<number>(0);
-  const [search, setSearch] = React.useState('');
-  const [count, setCount] = React.useState(0);
+  const [todos, setTodos] = React.useState<Todo[]>([]);
 
-  const hanldeCounter = () => {
-    setCounter(counter + 1);
+  const addTodo = (text: string) => {
+    setTodos([...todos, { id: Date.now(), text }]);
   };
-
-  React.useEffect(() => {
-    console.log('Counter mounted or count changed:', counter);
-
-    return () => {
-      console.log('Cleanup before next effect or unmount');
-    };
-  }, [counter]);
 
   return (
     <div className={styles.page}>
-      <button onClick={hanldeCounter}>Click me!</button>
-      <h1>Counter: {counter}</h1>
-
-      <DebouncedInput onChange={setSearch} />
-      <p>Search term: {search}</p>
-      <CounterWithPrev />
+      <h1>Todo List (Props 버전)</h1>
+      <TodoInput onAdd={addTodo} />
+      <TodoList todos={todos} />
     </div>
   );
 }
